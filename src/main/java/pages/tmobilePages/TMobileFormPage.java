@@ -1,6 +1,6 @@
 package pages.tmobilePages;
 
-import Scripts.Scripts;
+import scripts.Scripts;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.NoSuchElementException;
