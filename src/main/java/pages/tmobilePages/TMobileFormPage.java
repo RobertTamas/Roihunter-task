@@ -46,8 +46,6 @@ public class TMobileFormPage extends AbstractUIPage {
         dropAreaForAttachments = driver.findElement(
                 By.xpath("//button[contains(text(), 'Vybrat')]"));
         sendButton = driver.findElement(By.name("submit"));
-
-
     }
 
     public void fillElements(String subject, String content, String phoneNumber,

@@ -27,7 +27,6 @@ public class UnitTests {
         driver = new ChromeDriver();
         driver.manage().window().maximize();
         driver.manage().timeouts().pageLoadTimeout(15, TimeUnit.SECONDS);
-
     }
 
     @Test(description = "opens the google page and fill input field")
@@ -61,8 +60,8 @@ public class UnitTests {
         Assert.assertTrue(driver.getTitle().matches("skuska.*"));
     }
 
-    @Test(description = "selects best result from regex")
-    public void selectCorrectResult(){
+    @Test(description = "selects wiki page from results")
+    public void searchTextSelectWikipediaLink(){
         //Arrange
         GoogleResultPage page = new GoogleResultPage(driver);
 
