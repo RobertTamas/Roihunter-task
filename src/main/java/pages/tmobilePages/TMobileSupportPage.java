@@ -10,7 +10,7 @@ import pages.AbstractUIPage;
  */
 public class TMobileSupportPage extends AbstractUIPage {
 
-    public WebElement contactFormButton;
+    private WebElement contactFormButton;
 
     private final String URL = "https://www.t-mobile.cz/podpora/obratte-se-na-nas";
 
@@ -35,5 +35,9 @@ public class TMobileSupportPage extends AbstractUIPage {
     public void goToDirect(){
         driver.get(URL);
         initElements();
+    }
+
+    public WebElement getContactFormButton() {
+        return contactFormButton;
     }
 }

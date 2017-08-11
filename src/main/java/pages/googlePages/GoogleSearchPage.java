@@ -11,7 +11,7 @@ import pages.AbstractUIPage;
  */
 public class GoogleSearchPage extends AbstractUIPage {
 
-    public WebElement searchBox;
+    private WebElement searchBox;
     private final String URL = "https://google.cz";
 
     public GoogleSearchPage(ChromeDriver driver) {
@@ -30,5 +30,9 @@ public class GoogleSearchPage extends AbstractUIPage {
     public void goTo() {
         driver.get(URL);
         initElements();
+    }
+
+    public WebElement getSearchBox() {
+        return searchBox;
     }
 }

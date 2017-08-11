@@ -13,10 +13,10 @@ import pages.googlePages.GoogleResultPage;
  */
 public class TMobilePage extends AbstractUIPage {
 
-    public WebElement supportButton;
-    public WebElement contactUsButton;
-    public WebElement popUpCloseButton;
-    public Actions action = new Actions(driver);
+    private WebElement supportButton;
+    private WebElement contactUsButton;
+    private WebElement popUpCloseButton;
+    private Actions action = new Actions(driver);
 
     private final String URL = "https://www.t-mobile.cz";
 
@@ -67,5 +67,17 @@ public class TMobilePage extends AbstractUIPage {
     public void goToDirect() {
         driver.get(URL);
         initElements();
+    }
+
+    public WebElement getSupportButton() {
+        return supportButton;
+    }
+
+    public WebElement getContactUsButton() {
+        return contactUsButton;
+    }
+
+    public WebElement getPopUpCloseButton() {
+        return popUpCloseButton;
     }
 }

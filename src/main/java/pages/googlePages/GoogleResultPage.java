@@ -37,4 +37,8 @@ public class GoogleResultPage extends AbstractUIPage {
         parent.googleSearch(query);
         initElements();
     }
+
+    public List<WebElement> getResults() {
+        return results;
+    }
 }

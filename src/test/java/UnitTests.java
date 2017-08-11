@@ -39,8 +39,8 @@ public class UnitTests {
 
         //Act
         page.goTo();
-        page.searchBox.sendKeys(expectedInputValue);
-        actualInputValue = page.searchBox.getAttribute("value");
+        page.getSearchBox().sendKeys(expectedInputValue);
+        actualInputValue = page.getSearchBox().getAttribute("value");
 
         //Assert
         Assert.assertEquals(driver.getCurrentUrl(), expectedURL);
@@ -99,7 +99,7 @@ public class UnitTests {
 
         //Act
         page.goToDirect();
-        page.contactFormButton.click();
+        page.getContactFormButton().click();
         actualURL = driver.getCurrentUrl();
 
         //Assert
@@ -125,10 +125,10 @@ public class UnitTests {
         //Act
         page.fillElements(expectedSubject, expectedContent, expectedPhoneNumber,
                 expectedEmail, checkboxValue, filepath);
-        actualSubject = page.subject.getAttribute("value");
-        actualContent = page.content.getAttribute("value");
-        actualPhoneNumber = page.phoneNumber.getAttribute("value");
-        actualEmail = page.email.getAttribute("value");
+        actualSubject = page.getSubject().getAttribute("value");
+        actualContent = page.getContent().getAttribute("value");
+        actualPhoneNumber = page.getPhoneNumber().getAttribute("value");
+        actualEmail = page.getEmail().getAttribute("value");
 
         //Assert
         Assert.assertEquals(actualSubject, expectedSubject);
@@ -151,13 +151,13 @@ public class UnitTests {
 
         //Act
         page.setCheckboxValue(true);
-        expectedUncheckedToCheckedClassName = page.checkbox.getAttribute("class");
+        expectedUncheckedToCheckedClassName = page.getCheckbox().getAttribute("class");
         page.setCheckboxValue(true);
-        expectedCheckedToCheckedClassName = page.checkbox.getAttribute("class");
+        expectedCheckedToCheckedClassName = page.getCheckbox().getAttribute("class");
         page.setCheckboxValue(false);
-        expectedCheckedToUncheckedClassName = page.checkbox.getAttribute("class");
+        expectedCheckedToUncheckedClassName = page.getCheckbox().getAttribute("class");
         page.setCheckboxValue(false);
-        expectedUncheckedToUncheckedClassName = page.checkbox.getAttribute("class");
+        expectedUncheckedToUncheckedClassName = page.getCheckbox().getAttribute("class");
 
         //Assert
         Assert.assertTrue(expectedUncheckedToCheckedClassName.contains("active"));
@@ -176,7 +176,7 @@ public class UnitTests {
         String actualFileName;
 
         //Act
-        page.dropFile(new File(filePath), page.dropAreaForAttachments, 0, 0);
+        page.dropFile(new File(filePath), page.getDropAreaForAttachments(), 0, 0);
         actualFileName = driver.findElement(
                 By.xpath("//div[@class=\"upload-list\"]//li"))
                 .getAttribute("data-filename");
@@ -194,7 +194,7 @@ public class UnitTests {
         String filePath = "nonexisting\\path\\to\\something.extension";
 
         //Act
-        page.dropFile(new File(filePath), page.dropAreaForAttachments, 0, 0);
+        page.dropFile(new File(filePath), page.getDropAreaForAttachments(), 0, 0);
     }
 
     @Test(description = "sends filled form")
@@ -212,7 +212,7 @@ public class UnitTests {
         //Act
         page.fillElements(subject, content, phoneNumber,
                 email, checkboxValue, filepath);
-        page.sendButton.click();
+        page.getSendButton().click();
 
         //Assert
         Assert.assertTrue(page.isMessageDisplayed());

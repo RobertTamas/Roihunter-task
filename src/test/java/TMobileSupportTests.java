@@ -11,7 +11,8 @@ import java.util.concurrent.TimeUnit;
  * Created by Robert on 08/08/2017.
  */
 public class TMobileSupportTests {
-    ChromeDriver driver;
+
+    private ChromeDriver driver;
 
     @BeforeClass
     public void setUp() {
@@ -37,7 +38,7 @@ public class TMobileSupportTests {
         TMobileFormPage formPage = new TMobileFormPage(driver);
         formPage.goTo();
         formPage.fillElements(subject, content, phoneNumber, email, checkbox, filepath);
-        formPage.sendButton.click();
+        formPage.getSendButton().click();
 
         //Assert
         Assert.assertTrue(formPage.isMessageDisplayed());

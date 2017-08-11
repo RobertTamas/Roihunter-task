@@ -20,14 +20,14 @@ import java.io.File;
  */
 public class TMobileFormPage extends AbstractUIPage {
 
-    public WebElement subject;
-    public WebElement content;
-    public WebElement phoneNumber;
-    public WebElement email;
-    public WebElement checkbox;
-    public WebElement dropAreaForAttachments;
-    public WebElement sendButton;
-    public WebElement successfulMessage;
+    private WebElement subject;
+    private WebElement content;
+    private WebElement phoneNumber;
+    private WebElement email;
+    private WebElement checkbox;
+    private WebElement dropAreaForAttachments;
+    private WebElement sendButton;
+    private WebElement successfulMessage;
 
     private final String URL = "https://www.t-mobile.cz/podpora/kontaktujte-nas";
 
@@ -63,7 +63,7 @@ public class TMobileFormPage extends AbstractUIPage {
     public void goTo() {
         TMobileSupportPage parent = new TMobileSupportPage(driver);
         parent.goTo();
-        parent.contactFormButton.click();
+        parent.getContactFormButton().click();
         initElements();
     }
 
@@ -123,5 +123,37 @@ public class TMobileFormPage extends AbstractUIPage {
                 Scripts.JS_DROP_FILE, target, offsetX, offsetY);
         input.sendKeys(filePath.getAbsoluteFile().toString());
         wait.until(ExpectedConditions.stalenessOf(input));
+    }
+
+    public WebElement getSubject() {
+        return subject;
+    }
+
+    public WebElement getContent() {
+        return content;
+    }
+
+    public WebElement getPhoneNumber() {
+        return phoneNumber;
+    }
+
+    public WebElement getEmail() {
+        return email;
+    }
+
+    public WebElement getCheckbox() {
+        return checkbox;
+    }
+
+    public WebElement getDropAreaForAttachments() {
+        return dropAreaForAttachments;
+    }
+
+    public WebElement getSendButton() {
+        return sendButton;
+    }
+
+    public WebElement getSuccessfulMessage() {
+        return successfulMessage;
     }
 }
